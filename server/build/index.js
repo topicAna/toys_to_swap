@@ -42,6 +42,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var team_controller_1 = require("./controller/team.controller");
 var express_1 = __importDefault(require("express"));
 var loaders_1 = __importDefault(require("./loaders"));
+var associations_controller_1 = require("./controller/associations.controller");
+var posts_controller_1 = require("./controller/posts.controller");
 function startServer() {
     return __awaiter(this, void 0, void 0, function () {
         var app;
@@ -55,6 +57,8 @@ function startServer() {
                     // Chargement des différent loader
                     _a.sent();
                     // Ajout des différentes route de votre application
+                    posts_controller_1.PostsController(app);
+                    associations_controller_1.AssociationsController(app);
                     team_controller_1.TeamsController(app);
                     // Démarrage du serveur une fois que tout est correctement init
                     app.listen(3000, function () { return console.log('Express server  is running'); });
