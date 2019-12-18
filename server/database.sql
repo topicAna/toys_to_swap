@@ -81,7 +81,13 @@ CREATE TABLE IF NOT EXISTS `toys_to_swap`.`event` (
   `description` MEDIUMTEXT NULL,
   `date` VARCHAR(45) NULL,
   `zip_code` INT NULL,
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`),
+  INDEX `fk_event_user1_idx` (`user_id` ASC),
+  CONSTRAINT `fk_event_user1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `toys_to_swap`.`user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
