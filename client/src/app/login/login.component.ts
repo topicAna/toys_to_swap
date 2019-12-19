@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   login(){
-    console.log(this.loginForm.value.username)
     this.toyService.getUser(this.loginForm.value.username)
     .subscribe(response => {
       console.log(response)

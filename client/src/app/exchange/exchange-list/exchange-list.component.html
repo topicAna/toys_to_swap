@@ -1,1 +1,23 @@
-<p>exchange-list works!</p>
+<div class="toyListContainer">
+        <a routerLink="/exchangecreation"><button type="button" class="btn btn-success">J'ai un jouet à proposer</button></a>
+    <h4>Liste des jouets proposés</h4>
+    <div class="toyList">
+            <div *ngFor="let toy of toys" class="toyCard">
+                <div class="toyName">
+                    <h4>{{ toy.name }}</h4>
+                </div>
+                 <img src="{{ toy.image }}" alt="">
+                 <div class="desc">
+                    {{toy.description}}
+                 </div>
+            
+                <div class="toyCardAction">
+                    
+                <button type="submit" class="btn btn-success" (click)="exchange(toy)">Je le veux</button>
+            </div>
+        </div>
+    </div>
+</div> 
+
+
+

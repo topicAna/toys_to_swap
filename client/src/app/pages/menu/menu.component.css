@@ -13,7 +13,10 @@ box-shadow: 2px 5px rgba(245, 245, 245, 0.9);
 .nav-item a{
     font-size: 30px;
     color: whitesmoke;
-    font-family: Helvetica, sans-serif;
-   
+    font-family: Helvetica, sans-serif;   
     margin-left: 20px;
+}
+
+.nav-item a:hover{
+    color: #4b8f29 !important;
 }
