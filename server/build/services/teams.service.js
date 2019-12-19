@@ -30,6 +30,18 @@ var TeamsService = /** @class */ (function () {
     TeamsService.prototype.getById = function (id) {
         return this.repository.findById(id);
     };
+    TeamsService.prototype.getTeamByUserId = function (id) {
+        return this.repository.findTeamByUser(id);
+    };
+    TeamsService.prototype.getBySearchForm = function (name, loc) {
+        return this.repository.searchTeam(name, loc);
+    };
+    TeamsService.prototype.getBySearchFormPlaces = function (name, loc) {
+        return this.repository.searchTeamByPlaces(name, loc);
+    };
+    TeamsService.prototype.getBySearchFormPlacesWithParams = function (name, loc) {
+        return this.repository.searchTeamByPlacesWithParams(name, loc);
+    };
     /**
      * Create a new post and return a promise which contains the created post.
      * @param post post to create

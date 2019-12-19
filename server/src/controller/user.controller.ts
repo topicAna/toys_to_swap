@@ -1,6 +1,5 @@
-  
 import express, { Router, Request, Response, Application } from 'express';
-import { CharityService } from '../services/charity.service';
+import { UserService } from '../services/user.service';
 
 
 /**
@@ -10,25 +9,33 @@ import { CharityService } from '../services/charity.service';
  *
  * @param app l'application express
  */
-export const CharityController = (app: Application) => {
+export const UserController = (app: Application) => {
 
     const router: Router = express.Router();
-    const charityService = CharityService.getInstance();
+    const userService = UserService.getInstance();
 
     /**
      * Return only one post in JSON relative to its id
      */
-
- 
-    router.get('/', (req: Request, res: Response) => {
-        charityService.getAll().then(results => {
+    router.get('/getUser/:username', (req: Request, res: Response) => {
+        const username = req.params.username;
+        userService.verifyUser(username).then(results => {
             res.send(results);
         })
         .catch(err => {
-          console.log(err);
+            console.log(err);
+        })
+    });
+
+    router.get('/', (req: Request, res: Response) => {
+        userService.getAll().then(results => {
+            res.send(results);
+        })
+        .catch(err => {
+            console.log(err);
         })
     });
 
 
-    app.use('/charity', router);
+    app.use('/user', router);
 };

@@ -16,6 +16,60 @@ exports.TeamsController = function (app) {
     var router = express_1.default.Router();
     var teamsService = teams_service_1.TeamsService.getInstance();
     /**
+     * Return only one post in JSON relative to its id
+     */
+    router.get('/search/places/params', function (req, res) {
+        var loc = req.query.loc;
+        var name = req.query.name;
+        console.log(req.query);
+        teamsService.getBySearchFormPlacesWithParams(name, loc).then(function (results) {
+            res.send(results);
+        })
+            .catch(function (err) {
+            console.log(err);
+        });
+    });
+    router.get('/search/places', function (req, res) {
+        var loc = req.query.loc;
+        var name = req.query.name;
+        console.log(req.query);
+        teamsService.getBySearchFormPlaces(name, loc).then(function (results) {
+            res.send(results);
+        })
+            .catch(function (err) {
+            console.log(err);
+        });
+    });
+    router.get('/search/userteams/:id', function (req, res) {
+        var id = parseInt(req.params.id);
+        console.log(req.query);
+        teamsService.getTeamByUserId(id).then(function (results) {
+            res.send(results);
+        })
+            .catch(function (err) {
+            console.log(err);
+        });
+    });
+    router.get('/search', function (req, res) {
+        var loc = req.query.loc;
+        var name = req.query.name;
+        teamsService.getBySearchForm(name, loc).then(function (results) {
+            res.send(results);
+        })
+            .catch(function (err) {
+            console.log(err);
+        });
+    });
+    router.get('/:id', function (req, res) {
+        var id = parseInt(req.params.id);
+        teamsService.getById(id).then(function (result) {
+            res.send(result);
+        })
+            .catch(function (err) {
+            console.log(err);
+        });
+    });
+    /**
      * Return all posts in JSON
      */
     router.get('/', function (req, res) {
@@ -27,21 +81,9 @@ exports.TeamsController = function (app) {
         });
     });
     /**
-     * Return only one post in JSON relative to its id
-     */
-    router.get('/:id', function (req, res) {
-        var id = parseInt(req.params.id);
-        teamsService.getById(id).then(function (result) {
-            res.send(result);
-        })
-            .catch(function (err) {
-            console.log(err);
-        });
-    });
-    /**
      * Create a new post from a JSON body and return the created post in JSON.
      */
-    router.post('/', function (req, res) {
+    router.post('/creation', function (req, res) {
         var team = req.body; // Automatically transform in a Post object
         teamsService.create(team).then(function (result) {
             res.send(result);
