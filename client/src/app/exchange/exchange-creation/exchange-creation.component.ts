@@ -3,6 +3,7 @@ import { Charity } from 'src/app/shared/charity';
 import { toysService } from 'src/app/shared/toysService';
 import { FormBuilder } from '@angular/forms';
 import { Toy } from 'src/app/shared/toy';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-exchange-creation',
@@ -23,7 +24,7 @@ export class ExchangeCreationComponent implements OnInit {
     }
   )
 
-  constructor(private toyService: toysService, private fb: FormBuilder) { }
+  constructor(private toyService: toysService, private fb: FormBuilder, private http: HttpClient) { }
 
   ngOnInit() {
    this.getCharities();
@@ -34,12 +35,30 @@ export class ExchangeCreationComponent implements OnInit {
     this.charities = this.toyService.getAllCharities();
   }
 
+  onFileSelect(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.addToyForm.get('image').setValue(file);
+    }
+  }
+
   addToy()
   {
-    this.newToy = new Toy(this.addToyForm.value.name, this.addToyForm.value.image, this.addToyForm.value.desc, 1, this.addToyForm.value.charity);
-    this.toyService.addToy(this.newToy).subscribe(response => {
-      console.log(response);
-    });
+    const formData = new FormData();
+    console.log(formData);
+    formData.append('image', this.addToyForm.get('image').value);
+    this.http.post<any>("http://localhost:3000/toy/upload-image", formData).subscribe(
+      (res) => {
+        console.log(res);
+        this.newToy = new Toy(this.addToyForm.value.name, res.data.name, this.addToyForm.value.desc, 1, this.addToyForm.value.charity);
+        this.toyService.addToy(this.newToy).subscribe(response => {
+          console.log(response);
+        });
+      },
+      (err) => console.log(err)
+    );
+    console.log()
+
   }
 
 }
