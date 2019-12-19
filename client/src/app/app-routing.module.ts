@@ -22,7 +22,6 @@ const routes: Routes = [
   },
   {
     path: 'exchangelist',
-    component: ExchangeListComponent
   },
   {
     path: 'charitieslist',
