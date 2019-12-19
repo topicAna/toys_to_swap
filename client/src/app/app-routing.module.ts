@@ -12,34 +12,13 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
 
 const routes: Routes = [
 
-  {
-    path: '', 
-  component: LandingPageComponent
-  },
-  {
-    path: 'exchangecreation', 
-    component: ExchangeCreationComponent
-  },
-  {
-    path: 'exchangelist',
-    component: ExchangeListComponent
-  },
-  {
-    path: 'charitieslist',
-    component: CharitiesListComponent
-  },
-  {
-    path: 'event', 
-    component: SecretSantaComponent
-  },
-  {
-    path: 'profil', 
-    component: ProfilComponent
-  },
-  {
-    path: 'login',
-    component: LoginComponent
-  },
+  { path: '',  component: LandingPageComponent },
+  { path: 'exchangecreation', component: ExchangeCreationComponent },
+  { path: 'exchangelist', component: ExchangeListComponent },
+  { path: 'charitieslist', component: CharitiesListComponent},
+  { path: 'event', component: SecretSantaComponent },
+  { path: 'profil', component: ProfilComponent },
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({

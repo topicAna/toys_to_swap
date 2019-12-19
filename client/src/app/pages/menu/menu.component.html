@@ -9,23 +9,19 @@
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">secret santa</a>
+          <a class="nav-link" [routerLink]="['/event']">Secret Santa</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">échange</a>
+            <a class="nav-link" [routerLink]="['/exchangelist']">Échange</a>
           </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">associations</a>
+          <a class="nav-link" [routerLink]="['/charitieslist']">Associations</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown link
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
+        <li class="nav-item" *ngIf="!profile">
+          <a class="nav-link" [routerLink]="['/profil']">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/login']">Login</a>
         </li>
       </ul>
     </div>
