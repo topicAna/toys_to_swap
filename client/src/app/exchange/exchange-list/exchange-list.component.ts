@@ -10,6 +10,7 @@ import { Wish } from 'src/app/shared/wish';
 })
 export class ExchangeListComponent implements OnInit {
 
+  exchangeList: boolean = true;
   toys: Set<Toy> = new Set<Toy>();
   wish: Wish;
   wishList: Set<Toy> = new Set<Toy>();
@@ -23,6 +24,10 @@ export class ExchangeListComponent implements OnInit {
   getToys()
   {
     this.toyService.getToys().subscribe(response => response.forEach(t => this.toys.add(t)));
+    if(this.toys.size == 0)
+    {
+      this.exchangeList = false;
+    }
   }
 
   exchange(toy: Toy)
