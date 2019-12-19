@@ -15,6 +15,8 @@ import { __core_private_testing_placeholder__ } from '@angular/core/testing';
 })
 export class ProfilComponent implements OnInit {
 
+  userWish: boolean = true;
+  toysByUser: boolean = true;
   users: Set<User> = new Set<User>();
   user: User;
   wish: Set<Toy> = new Set<Toy>();
@@ -56,12 +58,20 @@ export class ProfilComponent implements OnInit {
   {
     this.wish.clear();
     this.toyService.getWish(id).subscribe(result => result.forEach(w => this.wish.add(w)));
+    if(this.wish.size == 0)
+    {
+      this.userWish = false
+    }
   }
 
   getToysByUser(id: number)
   {
     this.userToys.clear();
     this.toyService.getToysByUser(id).subscribe(result => result.forEach(t => this.userToys.add(t)));
+    if(this.userToys.size == 0)
+    {
+      this.toysByUser = false
+    }
   }
 
   deleteUserToy(toy: Toy)
