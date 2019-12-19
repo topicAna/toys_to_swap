@@ -6,7 +6,7 @@ var MysqlConnection = /** @class */ (function () {
         this.cnx = mysql_1.createConnection({
             host: 'localhost',
             user: 'root',
-            password: 'Shinrei42290!',
+            password: 'root',
             database: 'toys_to_swap',
         });
     }

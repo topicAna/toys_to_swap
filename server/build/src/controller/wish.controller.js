@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
-var toy_service_1 = require("../services/toy.service");
+var wish_service_1 = require("../services/wish.service");
 /**
  * Ce controller vous servira de modèle pour construire vos différent controller
  * Le controller est la partie de l'application qui est en charge de la reception
@@ -12,14 +12,23 @@ var toy_service_1 = require("../services/toy.service");
  *
  * @param app l'application express
  */
-exports.ToyController = function (app) {
+exports.WishController = function (app) {
     var router = express_1.default.Router();
-    var toyService = toy_service_1.ToyService.getInstance();
+    var wishService = wish_service_1.WishService.getInstance();
     /**
      * Return only one post in JSON relative to its id
      */
+    router.get('/iwant/:id', function (req, res) {
+        var id = parseInt(req.params.id);
+        wishService.getToyWish(id).then(function (result) {
+            res.send(result);
+        })
+            .catch(function (err) {
+            console.log(err);
+        });
+    });
     router.get('/', function (req, res) {
-        toyService.getAll().then(function (results) {
+        wishService.getAll().then(function (results) {
             res.send(results);
         })
             .catch(function (err) {
@@ -28,21 +37,21 @@ exports.ToyController = function (app) {
     });
     router.get('/:id', function (req, res) {
         var id = parseInt(req.params.id);
-        toyService.getById(id).then(function (result) {
+        wishService.getById(id).then(function (result) {
             res.send(result);
         })
             .catch(function (err) {
             console.log(err);
         });
     });
-    router.post('/', function (req, res) {
-        var toy = req.body; // Automatically transform in a Post object
-        toyService.create(toy).then(function (result) {
+    router.post('/create', function (req, res) {
+        var wish = req.body; // Automatically transform in a Post object
+        wishService.create(wish).then(function (result) {
             res.send(result);
         })
             .catch(function (err) {
             console.log(err);
         });
     });
-    app.use('/toy', router);
+    app.use('/wish', router);
 };
