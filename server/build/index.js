@@ -43,8 +43,9 @@ var team_controller_1 = require("./controller/team.controller");
 var express_1 = __importDefault(require("express"));
 var loaders_1 = __importDefault(require("./loaders"));
 var posts_controller_1 = require("./controller/posts.controller");
-var charity_controller_1 = require("./controller/charity.controller");
+var events_controller_1 = require("./controller/events.controller");
 var toys_controller_1 = require("./controller/toys.controller");
+var charity_controller_1 = require("./controller/charity.controller");
 function startServer() {
     return __awaiter(this, void 0, void 0, function () {
         var app;
@@ -59,6 +60,7 @@ function startServer() {
                     _a.sent();
                     // Ajout des différentes route de votre application
                     posts_controller_1.PostsController(app);
+                    events_controller_1.EventsController(app);
                     team_controller_1.TeamsController(app);
                     charity_controller_1.CharityController(app);
                     toys_controller_1.ToyController(app);

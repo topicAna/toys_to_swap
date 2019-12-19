@@ -1,5 +1,5 @@
-import { CharityRepository } from "../repository/charity.repository";
-import { Charity } from "../models/charity";
+import { UserRepository } from "../repository/user.repository";
+import { User } from "../models/user";
 
 
 /**
@@ -7,21 +7,21 @@ import { Charity } from "../models/charity";
  * C'est ici que l'ensemble de la logique consernant les post doit apparaitre.
  * Attention ! Mettez le moins possible d'element dans le controller
  */
-export class CharityService {
+export class UserService {
 
     // Make service => singletonTransformation de notre service en singleton
-    private static instance: CharityService;
+    private static instance: UserService;
     static getInstance() {
         if (!this.instance) {
-            this.instance = new CharityService();
+            this.instance = new UserService();
         }
         return this.instance;
     }
 
     // Un singleton est une class ayant une instance unique a travers toute l'app
-    private repository: CharityRepository;
+    private repository: UserRepository;
     private constructor() {
-        this.repository = CharityRepository.getInstance();
+        this.repository = UserRepository.getInstance();
     }
 
     // Business logic
@@ -29,9 +29,11 @@ export class CharityService {
     /**
      * Return a promise which contains an array of posts.
      */
-    getAll(): Promise<Charity[]> {
+    getAll(): Promise<User[]> {
         return this.repository.findAll();
     }
 
-    
+    verifyUser(username: string){
+        return this.repository.verifyUser(username);
+    }
 }

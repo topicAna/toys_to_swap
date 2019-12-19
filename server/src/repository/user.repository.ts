@@ -1,5 +1,5 @@
 import { MysqlConnection } from './../loaders/mysql';
-import { Charity } from '../models/charity';
+import { User } from '../models/user';
 
 
 /**
@@ -8,16 +8,16 @@ import { Charity } from '../models/charity';
  * Attention, aucune logique javascript ne doit apparaitre ici.
  * Il s'agit seulement de la couche de récupération des données (requeêe sql)
  */
-export class CharityRepository {
+export class UserRepository {
 
-    private static instance: CharityRepository;
+    private static instance: UserRepository;
     private connection: MysqlConnection = MysqlConnection.getInstance();
 
-    private table: string = 'charity';
+    private table: string = 'user';
 
     static getInstance() {
         if (!this.instance) {
-            this.instance = new CharityRepository();
+            this.instance = new UserRepository();
         }
         return this.instance;
     }
@@ -28,11 +28,18 @@ export class CharityRepository {
     /**
      * Make a query to the database to retrieve all posts and return it in a promise.
      */
-    findAll(): Promise<Charity[]> {
+    findAll(): Promise<User[]> {
         return this.connection.query(`SELECT * FROM ${this.table}`)
-          .then((results: any) => {
-            return results.map((charity: any) => new Charity(charity));
-          });
+        .then((results: any) => {
+            return results.map((user: any) => new User(user));
+        });
+    }
+
+    verifyUser(username: string){
+        return this.connection.query(`select * from ${this.table} where pseudo=?`, [username])
+            .then((results: any) => {
+                return results;
+            });
     }
 
 }

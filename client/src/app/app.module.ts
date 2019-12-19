@@ -9,6 +9,7 @@ import { ExchangeDetailComponent } from './exchange/exchange-detail/exchange-det
 import { ExchangeCreationComponent } from './exchange/exchange-creation/exchange-creation.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CharitiesListComponent } from './charities-list/charities-list.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CharitiesListComponent } from './charities-list/charities-list.componen
     ExchangeListComponent,
     ExchangeDetailComponent,
     ExchangeCreationComponent,
-    CharitiesListComponent
+    CharitiesListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
