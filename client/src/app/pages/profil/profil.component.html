@@ -13,8 +13,11 @@
         </div>
       </div>
     <h2>Je donne</h2>
+    <div *ngIf="!toysByUser">
+      Tu n'as pas donné de jouet
+    </div>
     <div class="bigcard" style="width: 70rem;" *ngFor="let toy of userToys">
-        <img src="{{ toy.image }}" class="card-img-top" alt="...">
+        <img src="http://localhost:3000/uploads/{{ toy.image }}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{ toy.name }}</h5>
           <button href="#" class="btn btn-primary" data-toggle="modal3" data-target="#exampleModalCenter3" (click)="deleteUserToy(toy)">Supprimer</button>
@@ -22,8 +25,11 @@
       </div>
   
     <h2>Je veux</h2>
+    <div *ngIf="!userWish">
+        Tu n'as pas encore choisi un jouet
+      </div>
     <div class="bigcard" style="width: 70rem;" *ngFor="let toy of wish">
-        <img src="{{ toy.image }}" class="card-img-top" alt="...">
+        <img src="http://localhost:3000/uploads/{{ toy.image }}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{ toy.name }}</h5>
           <button href="#" class="btn btn-primary" data-toggle="modal2" data-target="#exampleModalCenter2" (click)="deleteWish(toy)">Supprimer</button>

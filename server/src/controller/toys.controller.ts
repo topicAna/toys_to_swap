@@ -3,6 +3,8 @@ import { ToyService } from '../services/toy.service';
 import { Toy } from '../models/toy';
 
 
+
+
 /**
  * Ce controller vous servira de modèle pour construire vos différent controller
  * Le controller est la partie de l'application qui est en charge de la reception
@@ -14,7 +16,6 @@ export const ToyController = (app: Application) => {
 
     const router: Router = express.Router();
     const toyService = ToyService.getInstance();
-
     /**
      * Return only one post in JSON relative to its id
      */
@@ -71,6 +72,34 @@ export const ToyController = (app: Application) => {
           })
       });
 
+      router.post('/upload-image', async (req, res) =>{
+        try {
+            if(!req.files) {
+                res.send({
+                    status: false,
+                    message: 'No file uploaded'
+                });
+            } else {
+                let image: any = req.files.image;
+    
+                image.mv('./uploads/' + image.name);
+    
+                res.send({
+                    status: true,
+                    message: 'File is uploaded',
+                    data: {
+                        name: image.name,
+                        mimetype: image.mimetype,
+                        size: image.size
+                    }
+                });
+            }
+        } catch (err) {
+            res.status(500).send(err);
+        }
+    });
+
 
     app.use('/toy', router);
+    
 };
