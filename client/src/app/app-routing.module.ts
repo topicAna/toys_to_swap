@@ -4,11 +4,18 @@ import { ExchangeCreationComponent } from './exchange/exchange-creation/exchange
 import { ExchangeListComponent } from './exchange/exchange-list/exchange-list.component';
 import { CharitiesListComponent } from './charities-list/charities-list.component';
 import { SecretSantaComponent } from './pages/secret-santa/secret-santa.component';
+import { AppComponent } from './app.component';
+import { ProfilComponent } from './pages/profil/profil.component';
 import { LoginComponent } from './login/login.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 
 
 const routes: Routes = [
+
+  {
+    path: '', 
+  component: LandingPageComponent
+  },
   {
     path: 'exchangecreation', 
     component: ExchangeCreationComponent
@@ -26,12 +33,13 @@ const routes: Routes = [
     component: SecretSantaComponent
   },
   {
+    path: 'profil', 
+    component: ProfilComponent
+  },
+  {
     path: 'login',
     component: LoginComponent
   },
-
-  {path: '', 
-  component: LandingPageComponent},
 ];
 
 @NgModule({
