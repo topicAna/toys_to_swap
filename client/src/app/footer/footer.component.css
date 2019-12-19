@@ -25,7 +25,7 @@ footer
 
 
 p{
-    font-size: 30px;
+    font-size: 25px;
     color: whitesmoke;
     font-family: Helvetica, sans-serif;
    
@@ -37,7 +37,7 @@ p{
 text-align: center;
 
 }
-
+.nav-item a
 .copyright,  .impressum
 {
   text-align: center;
@@ -45,7 +45,7 @@ text-align: center;
 
 .logo
 {
-  height: 8vh;
+  height: 5vh;
 }
 
 @media (max-width: 768px) 

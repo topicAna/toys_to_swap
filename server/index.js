@@ -23,9 +23,6 @@ app.use(morgan('dev'));
 
 const port = process.env.PORT || 3000;
 
-app.listen(port, () =>
-    console.log(`App is listening on port ${port}.`)
-);
 
 app.post('/upload-image', async (req, res) =>{
     try {
@@ -54,5 +51,8 @@ app.post('/upload-image', async (req, res) =>{
     }
 });
 
+app.listen(port, () =>
+    console.log(`App is listening on port ${port}.`)
+);
 
 

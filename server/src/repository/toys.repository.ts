@@ -28,12 +28,21 @@ export class ToyRepository {
     /**
      * Make a query to the database to retrieve all posts and return it in a promise.
      */
+
+
     findAll(): Promise<Toy[]> {
         return this.connection.query(`SELECT * FROM ${this.table}`)
           .then((results: any) => {
             return results.map((toy: any) => new Toy(toy));
           });
     }
+
+    findToyByUserId(id: number): Promise<Toy> {
+        return this.connection.query(`select toy.id, toy.name, toy.image, toy.description, toy.user_id, toy.charity_id FROM toy where toy.user_id=?;`, [id])
+        .then((results: any) => {
+          return results.map((toy: Toy) => new Toy(toy));
+        });
+      }
 
     findById(id: number): Promise<Toy> {
         return this.connection.query(`SELECT * FROM ${this.table} WHERE id = ?`, [id])
@@ -48,6 +57,10 @@ export class ToyRepository {
           // After an insert the insert id is directly passed in the promise
           return this.findById(result.insertId);
         });
+      }
+
+      deleteToyByUser(id: number): Promise<any> {
+        return this.connection.query(`DELETE FROM toy WHERE id = ?`, [id]);
       }
 
 }

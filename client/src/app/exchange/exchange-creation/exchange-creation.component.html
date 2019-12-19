@@ -1,11 +1,12 @@
 <div class="exchangecreationcontainer">
     <h3>J'offre une nouvelle vie à un jouet</h3>
+   
     <form [formGroup]="addToyForm" (ngSubmit)="addToy()">
         <label>Titre</label>
         <input type="text" class="form-control" id="toyName" formControlName ="name" aria-describedby="nameHelp" placeholder="Titre de ton jouet">
         <small id="nameHelp" class="form-text text-muted">Donne un titre accrocheur à ton jouet</small><br/>
         <label>Photo</label>
-        <input type="file" class="form-control-file" id="exampleFormControlFile1" formControlName ="image" aria-describedby="imgHelp">
+        <input type="file" class="form-control-file" id="exampleFormControlFile1" formControlName ="image" aria-describedby="imgHelp" (change)="onFileSelect($event)">
         <small id="imgHelp" class="form-text text-muted">Prend une jolie photo de ton jouet</small><br/>
         <label>Description</label>
         <input type="textarea" class="form-control" id="toyDesc" formControlName ="desc" aria-describedby="descHelp" placeholder="Description">
@@ -16,5 +17,9 @@
         </select>
         <br/>
         <button type="submit" class="btn btn-success" >Valider</button>
+        <br/><br/>
+        <a routerLink="/exchangelist"><button type="button" class="btn btn-success">Annuler</button></a>
     </form>
+   
+   
 </div>

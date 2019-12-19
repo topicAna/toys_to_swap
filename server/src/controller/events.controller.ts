@@ -1,6 +1,7 @@
 import { Event } from './../models/event';
 import { EventService } from './../services/events.service';
 import express, { Router, Request, Response, Application } from 'express';
+import { Participate } from '../models/participate';
 
 /**
  * Ce controller vous servira de modèle pour construire vos différent controller
@@ -17,6 +18,17 @@ export const EventsController = (app: Application) => {
     /**
      * Return all posts in JSON
      */
+
+    router.get('/participate/:id', (req: Request, res: Response) => {
+      const id = parseInt(req.params.id);
+      eventsService.getParticipateByUser(id).then(result => {
+            res.send(result);
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    });
+
     router.get('/', (req: Request, res: Response) => {
       eventsService.getAll().then(results => {
             res.send(results);
@@ -32,6 +44,17 @@ export const EventsController = (app: Application) => {
     router.get('/:id', (req: Request, res: Response) => {
       const id = parseInt(req.params.id);
       eventsService.getById(id).then(result => {
+            res.send(result);
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    });
+
+    router.post('/participate', (req: Request, res: Response) => {
+      const participate: Participate = req.body; // Automatically transform in a Post object
+
+      eventsService.createByUser(participate).then(result => {
             res.send(result);
         })
         .catch(err => {
@@ -70,6 +93,18 @@ export const EventsController = (app: Application) => {
     /**
      * Delete a post relative its id.
      */
+
+    router.delete('/participate/:id', (req: Request, res: Response) => {
+      const id = parseInt(req.params.id);
+
+      eventsService.deleteEventByUser(id).then(result => {
+            res.send();
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    });
+
     router.delete('/:id', (req: Request, res: Response) => {
       const id = parseInt(req.params.id);
 

@@ -39,7 +39,7 @@ export class UserRepository {
         return this.connection.query(`select * from ${this.table} where pseudo=?`, [username])
             .then((results: any) => {
                 return results[0];
-            });
+        });
     }
 
 }

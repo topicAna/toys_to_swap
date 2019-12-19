@@ -30,7 +30,7 @@ export class WishRepository {
      * Make a query to the database to retrieve all posts and return it in a promise.
      */
     findAll(): Promise<Wish[]> {
-        return this.connection.query(`SELECT * FROM ${this.table}`)
+        return this.connection.query(`SELECT * FROM ${this.table} where user_id=1`)
           .then((results: any) => {
             return results.map((toy: any) => new Wish(toy));
           });
@@ -43,7 +43,7 @@ export class WishRepository {
 
     findToyIWish(id: number): Promise<Toy[]>
     {
-        return this.connection.query(`select toy.name, toy.image, toy.description from wish JOIN toy on wish.toy_id = toy.id where toy.user_id=?`,[id])
+        return this.connection.query(`select toy.id, toy.name, toy.image, toy.description from wish JOIN toy on wish.toy_id = toy.id where toy.user_id=?`,[id])
         .then((result: any) => {
             return result.map((toy:any) => new Toy(toy));
         });
@@ -59,4 +59,7 @@ export class WishRepository {
         });
       }
 
+      deleteWishByUser(id: number): Promise<any> {
+        return this.connection.query(`DELETE FROM wish WHERE toy_id = ?`, [id]);
+      }
 }

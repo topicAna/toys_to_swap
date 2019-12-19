@@ -20,8 +20,8 @@ const routes: Routes = [
     path: 'exchangecreation', 
     component: ExchangeCreationComponent
   },
-  {
-    path: 'exchangelist',
+  { 
+    path: 'exchangelist', component: ExchangeListComponent 
   },
   {
     path: 'charitieslist',
@@ -38,6 +38,11 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+
+  { 
+    path: 'charitieslist', 
+    component: CharitiesListComponent
   },
 ];
 

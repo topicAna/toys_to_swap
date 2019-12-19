@@ -1,11 +1,15 @@
 <div class="toyListContainer">
+        <a routerLink="/exchangecreation"><button type="button" class="btn btn-success">J'ai un jouet à proposer</button></a>
     <h4>Liste des jouets proposés</h4>
     <div class="toyList">
+            <div *ngIf="!exchangeList">
+                    Il n'y a pas encore de jouets proposés
+                  </div>
             <div *ngFor="let toy of toys" class="toyCard">
                 <div class="toyName">
                     <h4>{{ toy.name }}</h4>
                 </div>
-                 <img src="{{ toy.image }}" alt="">
+                 <img src="http://localhost:3000/uploads/{{ toy.image }}" alt="">
                  <div class="desc">
                     {{toy.description}}
                  </div>
