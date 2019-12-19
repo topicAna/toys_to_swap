@@ -1,0 +1,42 @@
+.toyListContainer
+{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.toyList
+{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.toyName
+{
+    height: 80px;
+    margin-top: 16px;
+}
+
+.toyCard
+{
+    width: 250px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+img
+{
+    width: 90%;
+}
+
+button
+{
+    align-self: flex-end;
+}
+
+

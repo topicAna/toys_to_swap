@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Charity } from 'src/app/shared/charity';
 import { toysService } from 'src/app/shared/toysService';
 import { FormBuilder } from '@angular/forms';
+import { Toy } from 'src/app/shared/toy';
 
 @Component({
   selector: 'app-exchange-creation',
@@ -11,6 +12,7 @@ import { FormBuilder } from '@angular/forms';
 export class ExchangeCreationComponent implements OnInit {
 
   charities: Set<Charity> = new Set<Charity>();
+  newToy: Toy;
 
   addToyForm = this.fb.group(
     {
@@ -34,7 +36,10 @@ export class ExchangeCreationComponent implements OnInit {
 
   addToy()
   {
-    console.log(this.addToyForm.value)
+    this.newToy = new Toy(this.addToyForm.value.name, this.addToyForm.value.image, this.addToyForm.value.desc, 1, this.addToyForm.value.charity);
+    this.toyService.addToy(this.newToy).subscribe(response => {
+      console.log(response);
+    });
   }
 
 }

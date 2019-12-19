@@ -1,0 +1,64 @@
+
+li
+{
+  list-style-type: none;
+  margin-left: 1vw;
+}
+
+li:first-child
+{
+  margin:0;
+}
+
+footer
+{
+  padding-top: 5vh;
+  padding-bottom: 2vh;
+}
+
+.content
+{
+  height: 10%;
+  width: 100%;
+  background-color: lightgray;
+}
+
+
+p{
+    font-size: 30px;
+    color: whitesmoke;
+    font-family: Helvetica, sans-serif;
+   
+    margin-left: 20px;
+}
+.container
+{
+  width: 100%;
+text-align: center;
+
+}
+
+.copyright,  .impressum
+{
+  text-align: center;
+}
+
+.logo
+{
+  height: 8vh;
+}
+
+@media (max-width: 768px) 
+{
+  li
+  {
+    margin-left: 0;
+    margin-bottom: 1vh;
+    
+  }
+  
+  .sozial
+  {
+    margin-bottom: 1vh;
+  }
+}

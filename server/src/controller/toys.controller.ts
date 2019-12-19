@@ -39,7 +39,7 @@ export const ToyController = (app: Application) => {
           })
       });
 
-      router.post('/', (req: Request, res: Response) => {
+      router.post('/create', (req: Request, res: Response) => {
         const toy: Toy = req.body; // Automatically transform in a Post object
   
         toyService.create(toy).then(result => {

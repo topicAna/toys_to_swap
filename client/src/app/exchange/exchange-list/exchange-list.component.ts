@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { toysService } from 'src/app/shared/toysService';
+import { Toy } from '../../shared/toy';
+import { Wish } from 'src/app/shared/wish';
 
 @Component({
   selector: 'app-exchange-list',
@@ -7,9 +10,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExchangeListComponent implements OnInit {
 
-  constructor() { }
+  toys: Set<Toy> = new Set<Toy>();
+  wish: Wish;
+  wishList: Set<Toy> = new Set<Toy>();
+
+  constructor(private toyService: toysService) { }
 
   ngOnInit() {
+    this.getToys();
+  }
+
+  getToys()
+  {
+    this.toyService.getToys().subscribe(response => response.forEach(t => this.toys.add(t)));
+  }
+
+  exchange(toy: Toy)
+  {
+    this.wish = new Wish(1, toy.id)
+    this.toyService.addWish(this.wish).subscribe(response => {
+      console.log(response);
+    });
+    
+  }
+
+  getWish(id:number)
+  {
+    this.toyService.getWish(id).subscribe(response => response.forEach(t => this.wishList.add(t)));
+    console.log(this.wishList)
   }
 
 }

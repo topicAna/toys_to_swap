@@ -1,0 +1,34 @@
+.img{
+    width: 220px;
+    /*height: 250px;*/
+}
+
+.assos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  
+    align-items: center;  
+    align-content: space-around;
+}
+
+.asso{
+    /*display: flex;*/
+    /*height: 220px;*/
+    border: 1px solid black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /*justify-content: space-around;*/
+    text-align: center;
+    /*align-self: stretch;*/
+    /*align-content: center;*/
+}
+
+.eachasso {
+    display: flex;
+}
+
+.text {
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
