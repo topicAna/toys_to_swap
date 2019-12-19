@@ -6,6 +6,8 @@ box-shadow: 2px 5px rgba(245, 245, 245, 0.9);
 padding: 10px;
 height: 150px;
 opacity: 0.8;
+margin-bottom: 5%;
+
 
 }
 
@@ -29,4 +31,13 @@ opacity: 0.8;
     border-radius: 8px;
     font-size: 30px;
     transition: all 0.5s ease;
+}
+
+.nav-item:active{
+    color: rgb(41, 105, 25) !important;
+    border: 1px solid rgb(41, 105, 25);
+    border-radius: 8px;
+    font-size: 30px;
+    transition: all 0.5s ease;
+
 }

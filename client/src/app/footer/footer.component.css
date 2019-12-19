@@ -31,10 +31,13 @@ p{
    
     margin-left: 20px;
 }
-.container
+.containerFooter
 {
+
+  margin-top: 10%;
+  border-top:solid 2px whitesmoke;
   width: 100%;
-text-align: center;
+  justify-content: space-between
 
 }
 .nav-item a
@@ -45,13 +48,14 @@ text-align: center;
 
 .logo
 {
-  transition: all 0.5s ease;
+  
   height: 5vh;
 }
 
 
 .logo:hover{
   height: 8vh;
+  transition: all 0.5s ease;
 }
 p{
   list-style: none;
@@ -75,5 +79,8 @@ p:hover{
   .sozial
   {
     margin-bottom: 1vh;
+    
   }
+
+  
 }
