@@ -45,7 +45,22 @@ text-align: center;
 
 .logo
 {
+  transition: all 0.5s ease;
   height: 5vh;
+}
+
+
+.logo:hover{
+  height: 8vh;
+}
+p{
+  list-style: none;
+  cursor:pointer;
+  text-decoration: none;
+}
+
+p:hover{
+  color: rgb(41, 105, 25);
 }
 
 @media (max-width: 768px) 
