@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { trigger, state, style, animate, transition, group } from '@angular/animations';
 
 @Component({
@@ -44,9 +44,23 @@ export class LandingPageComponent implements OnInit {
       this.current = this.current === 'enter' ? 'leaveLeft' : 'leaveLeft';
     }
 
+      
+
+
   constructor() { }
 
   ngOnInit() {
-  }
+
+    
+    
+    
+    
+
+
 
 }
+
+    
+}
+
+
