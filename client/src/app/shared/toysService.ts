@@ -48,7 +48,7 @@ export class toysService {
         return this.http.get<Set<Toy>>(`${this.toysURL}/wish/iwant/${id}`);
     }
   
-  getUser(username: string){
+    getUser(username: string){
     return this.http.get<any>(`${this.toysURL}/user/getUser/${username}`);
   }
 }
