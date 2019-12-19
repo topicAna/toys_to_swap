@@ -9,8 +9,11 @@ import { Participate } from './participate';
 @Injectable({
   providedIn: 'root'
 })
+
 export class toysService {
 
+  login: boolean = false;
+  profile: boolean = true;
 
     charities: Set<Charity> = new Set<Charity>();
     toys: Set<Toy> = new Set<Toy>();

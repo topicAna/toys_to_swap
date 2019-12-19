@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { toysService } from 'src/app/shared/toysService';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  profile: boolean;
+  login: boolean;
+
+  constructor(private toyService: toysService) { }
 
   ngOnInit() {
+    this.profile = this.toyService.profile;
+    this.login = this.toyService.login;
   }
 
 }
