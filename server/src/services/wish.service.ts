@@ -51,5 +51,9 @@ export class WishService {
       return this.repository.insert(wish);
     }
 
+    deleteWishFromUser(id: number)
+    {
+        return this.repository.deleteWishByUser(id);
+    }
     
 }
