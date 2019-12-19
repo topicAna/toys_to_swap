@@ -35,52 +35,44 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var express = require('express');
-var fileUpload = require('express-fileupload');
-var cors = require('cors');
-var bodyParser = require('body-parser');
-var morgan = require('morgan');
-var _ = require('lodash');
-var app = express();
-app.use(express.static('uploads'));
-app.use(fileUpload({
-    createParentPath: true,
-}));
-app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(morgan('dev'));
-var port = process.env.PORT || 3000;
-app.listen(port, function () {
-    return console.log("App is listening on port " + port + ".");
-});
-app.post('/upload-image', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var avatar;
-    return __generator(this, function (_a) {
-        try {
-            if (!req.files) {
-                res.send({
-                    status: false,
-                    message: 'No file uploaded'
-                });
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var team_controller_1 = require("./controller/team.controller");
+var express_1 = __importDefault(require("express"));
+var loaders_1 = __importDefault(require("./loaders"));
+var posts_controller_1 = require("./controller/posts.controller");
+var events_controller_1 = require("./controller/events.controller");
+var toys_controller_1 = require("./controller/toys.controller");
+var wish_controller_1 = require("./controller/wish.controller");
+var charity_controller_1 = require("./controller/charity.controller");
+var user_controller_1 = require("./controller/user.controller");
+function startServer() {
+    return __awaiter(this, void 0, void 0, function () {
+        var app;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    app = express_1.default();
+                    // Chargement des différent loader
+                    return [4 /*yield*/, loaders_1.default(app)];
+                case 1:
+                    // Chargement des différent loader
+                    _a.sent();
+                    // Ajout des différentes route de votre application
+                    posts_controller_1.PostsController(app);
+                    events_controller_1.EventsController(app);
+                    user_controller_1.UserController(app);
+                    team_controller_1.TeamsController(app);
+                    charity_controller_1.CharityController(app);
+                    toys_controller_1.ToyController(app);
+                    wish_controller_1.WishController(app);
+                    // Démarrage du serveur une fois que tout est correctement init
+                    app.listen(3000, function () { return console.log('Express server  is running'); });
+                    return [2 /*return*/];
             }
-            else {
-                avatar = req.files.avatar;
-                avatar.mv('./uploads/' + avatar.name);
-                res.send({
-                    status: true,
-                    message: 'File is uploaded',
-                    data: {
-                        name: avatar.name,
-                        mimetype: avatar.mimetype,
-                        size: avatar.size
-                    }
-                });
-            }
-        }
-        catch (err) {
-            res.status(500).send(err);
-        }
-        return [2 /*return*/];
+        });
     });
-}); });
+}
+startServer();
