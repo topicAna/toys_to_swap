@@ -1,10 +1,19 @@
-<div class="profilContainer"  *ngFor="let user of users">
-    <h1>Mon Compte</h1>
-        <h4>Mon pseudo : </h4> <span>{{ user.pseudo }}</span>
-        <h4>Mon nom :</h4> <span>{{ user.lastname }}</span>
-        <h4>Mon prénom :</h4> <span>{{ user.firstname }}</span>
-    <h2>Mes évenements</h2>
-    <div class="bigcard" style="width: 70rem;" *ngFor="let p of participates">
+<div class="container-fluid profilContainer"  *ngFor="let user of users">
+  <h1>Mon Compte</h1>
+  <div class="infoevent">
+    <div class="info">
+      <h2>Informations</h2>
+      <h4>Mon pseudo : </h4>
+      <span>{{ user.pseudo }}</span>
+      <h4>Mon nom :</h4> 
+      <span>{{ user.lastname }}</span>
+      <h4>Mon prénom :</h4> 
+      <span>{{ user.firstname }}</span>
+      <button class="button">Editer</button>
+    </div>
+    <div class="event">
+      <h2>Mes évenements</h2>
+      <div class="bigcard" style="width: 70rem;" *ngFor="let p of participates">
         <img src="{{ p.image }}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{ p.name }}</h5>
@@ -12,21 +21,28 @@
           <button href="#" class="btn btn-primary" data-toggle="modal1" data-target="#exampleModalCenter1" (click)="deleteEvent(p)">Annuler</button>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="donne">
     <h2>Je donne</h2>
     <div class="bigcard" style="width: 70rem;" *ngFor="let toy of userToys">
-        <img src="{{ toy.image }}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{ toy.name }}</h5>
-          <button href="#" class="btn btn-primary" data-toggle="modal3" data-target="#exampleModalCenter3" (click)="deleteUserToy(toy)">Supprimer</button>
-        </div>
+      <img src="{{ toy.image }}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ toy.name }}</h5>
+        <button href="#" class="btn btn-primary" data-toggle="modal3" data-target="#exampleModalCenter3" (click)="deleteUserToy(toy)">Supprimer</button>
       </div>
-  
+    </div>
+  </div>
+
+  <div class="veux">
     <h2>Je veux</h2>
     <div class="bigcard" style="width: 70rem;" *ngFor="let toy of wish">
-        <img src="{{ toy.image }}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{ toy.name }}</h5>
-          <button href="#" class="btn btn-primary" data-toggle="modal2" data-target="#exampleModalCenter2" (click)="deleteWish(toy)">Supprimer</button>
-        </div>
+      <img src="{{ toy.image }}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ toy.name }}</h5>
+        <button href="#" class="btn btn-primary" data-toggle="modal2" data-target="#exampleModalCenter2" (click)="deleteWish(toy)">Supprimer</button>
       </div>
+    </div>
+  </div>
 </div>

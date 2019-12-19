@@ -17,8 +17,11 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/charitieslist']">Nos associations</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="profile">
           <a class="nav-link" [routerLink]="['/profil']">Profil</a>
+        </li>
+        <li class="nav-item" *ngIf="!login">
+          <a class="nav-link" [routerLink]="['/login']">Connexion</a>
         </li>
       </ul>
     </div>
