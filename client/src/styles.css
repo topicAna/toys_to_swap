@@ -4,5 +4,6 @@
 body, html{
     background-image: url("./assets/background.png");
     background-size: cover;
+    color: white;
     
 }

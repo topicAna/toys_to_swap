@@ -9,5 +9,14 @@ form
 {
     width: 50%;
     margin: 0 auto;
+    background-color: white;
+    padding: 16px;
+    border-radius: 5px;
+}
+
+h3
+{
+    margin: 20px;
+    color: white;
 }
 

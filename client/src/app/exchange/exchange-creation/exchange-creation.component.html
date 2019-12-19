@@ -1,5 +1,6 @@
 <div class="exchangecreationcontainer">
     <h3>J'offre une nouvelle vie à un jouet</h3>
+   
     <form [formGroup]="addToyForm" (ngSubmit)="addToy()">
         <label>Titre</label>
         <input type="text" class="form-control" id="toyName" formControlName ="name" aria-describedby="nameHelp" placeholder="Titre de ton jouet">
@@ -16,5 +17,9 @@
         </select>
         <br/>
         <button type="submit" class="btn btn-success" >Valider</button>
+        <br/><br/>
+        <a routerLink="/exchangelist"><button type="button" class="btn btn-success">Annuler</button></a>
     </form>
+   
+   
 </div>
