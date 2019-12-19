@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService } from 'src/app/shared/event.service';
+import { NavigationEnd } from '@angular/router';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-secret-santa',
@@ -10,7 +12,8 @@ export class SecretSantaComponent implements OnInit {
 
   private events: Event[];
   newEvent: Event;
-  constructor(private eventService: EventService) { }
+  constructor(private eventService: EventService, private router: Router) {
+   }
 
   ngOnInit() {
     this.eventService.getEvents().subscribe(response => {
@@ -22,7 +25,9 @@ export class SecretSantaComponent implements OnInit {
     this.newEvent = event;
     console.log(this.newEvent)
   }
+  comeHome(){
+    this.router.navigate([`/`]);
+  }
 
-  
 
 }

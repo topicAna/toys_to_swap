@@ -8,8 +8,6 @@ import { Etape2Component } from './pages/landing-page/etape2/etape2.component';
 import { Etape3Component } from './pages/landing-page/etape3/etape3.component';
 import { AnimateOnScrollModule } from 'ng2-animate-on-scroll';
 import { FooterComponent } from './footer/footer.component';
-
-import { HttpClientModule } from '@angular/common/http';
 import { SecretSantaComponent } from './pages/secret-santa/secret-santa.component';
 import { ReactiveFormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
@@ -17,7 +15,10 @@ import { AppComponent } from './app.component';
 import { ExchangeListComponent } from './exchange/exchange-list/exchange-list.component';
 import { ExchangeDetailComponent } from './exchange/exchange-detail/exchange-detail.component';
 import { ExchangeCreationComponent } from './exchange/exchange-creation/exchange-creation.component';
-
+import { ProfilComponent } from './pages/profil/profil.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CharitiesListComponent } from './charities-list/charities-list.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,9 @@ import { ExchangeCreationComponent } from './exchange/exchange-creation/exchange
     ExchangeListComponent,
     ExchangeDetailComponent,
     ExchangeCreationComponent,
+    ProfilComponent,
+    CharitiesListComponent,
+    LoginComponent
   ],
 
   imports:[

@@ -42,6 +42,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var team_controller_1 = require("./controller/team.controller");
 var express_1 = __importDefault(require("express"));
 var loaders_1 = __importDefault(require("./loaders"));
+var posts_controller_1 = require("./controller/posts.controller");
+var events_controller_1 = require("./controller/events.controller");
+var toys_controller_1 = require("./controller/toys.controller");
+var charity_controller_1 = require("./controller/charity.controller");
 function startServer() {
     return __awaiter(this, void 0, void 0, function () {
         var app;
@@ -55,7 +59,11 @@ function startServer() {
                     // Chargement des différent loader
                     _a.sent();
                     // Ajout des différentes route de votre application
+                    posts_controller_1.PostsController(app);
+                    events_controller_1.EventsController(app);
                     team_controller_1.TeamsController(app);
+                    charity_controller_1.CharityController(app);
+                    toys_controller_1.ToyController(app);
                     // Démarrage du serveur une fois que tout est correctement init
                     app.listen(3000, function () { return console.log('Express server  is running'); });
                     return [2 /*return*/];
