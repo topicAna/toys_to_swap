@@ -1,13 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,} from '@angular/core';
 import { EventService } from 'src/app/shared/event.service';
 import { NavigationEnd } from '@angular/router';
 import {Router} from '@angular/router';
 
+
 @Component({
   selector: 'app-secret-santa',
   templateUrl: './secret-santa.component.html',
-  styleUrls: ['./secret-santa.component.css']
+  styleUrls: ['./secret-santa.component.css'],
+
 })
+
+
 export class SecretSantaComponent implements OnInit {
 
   private events: Event[];

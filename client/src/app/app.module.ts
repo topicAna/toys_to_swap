@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Etape1Component } from './pages/landing-page/etape1/etape1.component';
 import { Etape2Component } from './pages/landing-page/etape2/etape2.component';
 import { Etape3Component } from './pages/landing-page/etape3/etape3.component';
-import { AnimateOnScrollModule } from 'ng2-animate-on-scroll';
 import { FooterComponent } from './footer/footer.component';
 import { SecretSantaComponent } from './pages/secret-santa/secret-santa.component';
 import { ReactiveFormsModule } from '@angular/forms'
@@ -29,22 +28,22 @@ import { LoginComponent } from './login/login.component';
     Etape2Component,
     Etape3Component,
     FooterComponent,
-    SecretSantaComponent,
     ExchangeListComponent,
     ExchangeDetailComponent,
     ExchangeCreationComponent,
     ProfilComponent,
     CharitiesListComponent,
-    LoginComponent
+    LoginComponent,
+    SecretSantaComponent
   ],
 
   imports:[
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    AnimateOnScrollModule.forRoot(),   
+    BrowserAnimationsModule,  
     HttpClientModule,
     ReactiveFormsModule,
+
   ],
 
   providers: [],
