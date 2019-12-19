@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { SecretSantaComponent } from './pages/secret-santa/secret-santa.component';
 import { ReactiveFormsModule } from '@angular/forms'
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ExchangeListComponent } from './exchange/exchange-list/exchange-list.component';
@@ -13,6 +13,7 @@ import { CharitiesListComponent } from './charities-list/charities-list.componen
 @NgModule({
   declarations: [
     AppComponent,
+    SecretSantaComponent,
     ExchangeListComponent,
     ExchangeDetailComponent,
     ExchangeCreationComponent,
@@ -20,10 +21,11 @@ import { CharitiesListComponent } from './charities-list/charities-list.componen
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     AppRoutingModule,
+    HttpClientModule,
     ReactiveFormsModule,
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
