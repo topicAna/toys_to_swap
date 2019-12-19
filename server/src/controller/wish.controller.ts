@@ -1,6 +1,6 @@
 import express, { Router, Request, Response, Application } from 'express';
-import { ToyService } from '../services/toy.service';
-import { Toy } from '../models/toy';
+import { WishService } from '../services/wish.service';
+import { Wish } from '../models/wish';
 
 
 /**
@@ -10,18 +10,27 @@ import { Toy } from '../models/toy';
  *
  * @param app l'application express
  */
-export const ToyController = (app: Application) => {
+export const WishController = (app: Application) => {
 
     const router: Router = express.Router();
-    const toyService = ToyService.getInstance();
+    const wishService = WishService.getInstance();
 
     /**
      * Return only one post in JSON relative to its id
      */
 
+    router.get('/iwant/:id', (req: Request, res: Response) => {
+        const id = parseInt(req.params.id);
+        wishService.getToyWish(id).then(result => {
+              res.send(result);
+          })
+          .catch(err => {
+            console.log(err);
+          })
+      });
  
     router.get('/', (req: Request, res: Response) => {
-        toyService.getAll().then(results => {
+        wishService.getAll().then(results => {
             res.send(results);
         })
         .catch(err => {
@@ -31,7 +40,7 @@ export const ToyController = (app: Application) => {
 
     router.get('/:id', (req: Request, res: Response) => {
         const id = parseInt(req.params.id);
-        toyService.getById(id).then(result => {
+        wishService.getById(id).then(result => {
               res.send(result);
           })
           .catch(err => {
@@ -40,9 +49,9 @@ export const ToyController = (app: Application) => {
       });
 
       router.post('/create', (req: Request, res: Response) => {
-        const toy: Toy = req.body; // Automatically transform in a Post object
+        const wish: Wish = req.body; // Automatically transform in a Post object
   
-        toyService.create(toy).then(result => {
+        wishService.create(wish).then(result => {
               res.send(result);
           })
           .catch(err => {
@@ -51,5 +60,5 @@ export const ToyController = (app: Application) => {
       });
 
 
-    app.use('/toy', router);
+    app.use('/wish', router);
 };
