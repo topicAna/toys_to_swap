@@ -2,8 +2,11 @@ import { TeamsController } from './controller/team.controller';
 import express from 'express';
 
 import loaders from './loaders';
-import { TournamentsController } from './controller/tournaments.controller';
 import { PostsController } from './controller/posts.controller';
+import { EventsController } from './controller/events.controller';
+import { ToyController } from './controller/toys.controller';
+import { CharityController } from './controller/charity.controller';
+
 
 async function startServer() {
     // Récupération de l'application initiale
@@ -14,8 +17,11 @@ async function startServer() {
 
     // Ajout des différentes route de votre application
     PostsController(app);
-    TournamentsController(app);
+    EventsController(app);
+
     TeamsController(app);
+    CharityController(app);
+    ToyController(app);
 
     // Démarrage du serveur une fois que tout est correctement init
     app.listen(3000, () => console.log('Express server  is running'));

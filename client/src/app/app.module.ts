@@ -1,7 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,6 +9,14 @@ import { Etape3Component } from './pages/landing-page/etape3/etape3.component';
 import { AnimateOnScrollModule } from 'ng2-animate-on-scroll';
 import { FooterComponent } from './footer/footer.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { SecretSantaComponent } from './pages/secret-santa/secret-santa.component';
+import { ReactiveFormsModule } from '@angular/forms'
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { ExchangeListComponent } from './exchange/exchange-list/exchange-list.component';
+import { ExchangeDetailComponent } from './exchange/exchange-detail/exchange-detail.component';
+import { ExchangeCreationComponent } from './exchange/exchange-creation/exchange-creation.component';
 
 
 @NgModule({
@@ -21,16 +27,22 @@ import { FooterComponent } from './footer/footer.component';
     Etape1Component,
     Etape2Component,
     Etape3Component,
-    FooterComponent
+    FooterComponent,
+    SecretSantaComponent,
+    ExchangeListComponent,
+    ExchangeDetailComponent,
+    ExchangeCreationComponent,
   ],
 
   imports:[
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AnimateOnScrollModule.forRoot(),
-    
+    AnimateOnScrollModule.forRoot(),   
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
