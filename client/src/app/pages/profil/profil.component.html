@@ -1,10 +1,9 @@
-<h1>Mon Compte</h1>
-<div>
-    <h2>Mes informations :</h2>
-        <h3>Mon pseudo : </h3>
-        <p>Mon nom :</p>
-        <p>Mon prénom :</p>
-    <h2>Mes inscriptions au Secret Santa :</h2>
+<div class="profilContainer"  *ngFor="let user of users">
+    <h1>Mon Compte</h1>
+        <h4>Mon pseudo : </h4> <span>{{ user.pseudo }}</span>
+        <h4>Mon nom :</h4> <span>{{ user.lastname }}</span>
+        <h4>Mon prénom :</h4> <span>{{ user.firstname }}</span>
+    <h2>Mes évenements</h2>
     <div class="bigcard" style="width: 70rem;"*ngIf="newEvent">
         <img src="" class="card-img-top" alt="...">
         <div class="card-body">

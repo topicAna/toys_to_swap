@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/shared/user';
+import { toysService } from 'src/app/shared/toysService';
 
 @Component({
   selector: 'app-profil',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilComponent implements OnInit {
 
-  constructor() { }
+  users: Set<User> = new Set<User>();
+  user: User;
+  constructor(private toyService: toysService) { }
 
   ngOnInit() {
+    this.getUser();
+  }
+
+  getUser()
+  {
+    return this.toyService.getUser('mayolle').subscribe(result => this.users.add(result));
   }
 
 }
