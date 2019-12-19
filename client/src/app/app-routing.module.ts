@@ -4,6 +4,7 @@ import { ExchangeCreationComponent } from './exchange/exchange-creation/exchange
 import { CharitiesListComponent } from './charities-list/charities-list.component';
 import { SecretSantaComponent } from './pages/secret-santa/secret-santa.component';
 import { LoginComponent } from './login/login.component';
+import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 
 
 const routes: Routes = [
@@ -22,7 +23,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
-  }
+  },
+
+  {path: '', 
+  component: LandingPageComponent},
 ];
 
 @NgModule({
