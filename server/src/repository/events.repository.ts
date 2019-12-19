@@ -1,4 +1,5 @@
 import { Event } from './../models/event';
+import { Participate } from './../models/participate';
 import { MysqlConnection } from './../loaders/mysql';
 
 /**
@@ -44,6 +45,18 @@ export class EventRepository {
           .then((results: any) => new Event(results[0]));
     }
 
+    findParticipateByUserId(id: number): Promise<Event> {
+      return this.connection.query(`select event.id, event.name, event.image, event.description, event.date, event.zip_code FROM participate JOIN event ON participate.event_id=event.id where participate.user_id=?;`, [id])
+      .then((results: any) => {
+        return results.map((participate: Participate) => new Participate(participate));
+      });
+    }
+  
+   findByUser(id: number): Promise<Event> {
+       return this.connection.query(`SELECT * FROM ${this.table} WHERE id = ?`, [id])
+         .then((results: any) => new Event(results[0]));
+   }
+
 
     /**
      * Make a query to the database to insert a new post and return the created post in a promise.
@@ -53,6 +66,16 @@ export class EventRepository {
       return this.connection.query(
         `INSERT INTO ${this.table} (name,image,description, date, zip_code) VALUES(?,?,?,?,?)`,
         [event.name, event.image, event.description, event.date, event.zip_code]
+      ).then((result: any) => {
+        // After an insert the insert id is directly passed in the promise
+        return this.findById(result.insertId);
+      });
+    }
+
+    insertByUser(participate: Participate) {
+      return this.connection.query(
+        `INSERT INTO participate (user_id, event_id) VALUES(?,?)`,
+        [participate.user_id, participate.event_id]
       ).then((result: any) => {
         // After an insert the insert id is directly passed in the promise
         return this.findById(result.insertId);
@@ -78,5 +101,9 @@ export class EventRepository {
      */
     delete(id: number): Promise<any> {
       return this.connection.query(`DELETE FROM ${this.table} WHERE id = ?`, [id]);
+    }
+
+    deleteEventByUser(id: number): Promise<any> {
+      return this.connection.query(`DELETE FROM participate WHERE event_id = ?`, [id]);
     }
 }

@@ -20,6 +20,16 @@ export const ToyController = (app: Application) => {
      */
 
  
+    router.get('/mytoys/:id', (req: Request, res: Response) => {
+        const id = parseInt(req.params.id);
+        toyService.getToyByUser(id).then(result => {
+              res.send(result);
+          })
+          .catch(err => {
+            console.log(err);
+          })
+      });
+
     router.get('/', (req: Request, res: Response) => {
         toyService.getAll().then(results => {
             res.send(results);
@@ -44,6 +54,17 @@ export const ToyController = (app: Application) => {
   
         toyService.create(toy).then(result => {
               res.send(result);
+          })
+          .catch(err => {
+            console.log(err);
+          })
+      });
+
+      router.delete('/deletetoy/:id', (req: Request, res: Response) => {
+        const id = parseInt(req.params.id);
+  
+        toyService.deleteToyByUser(id).then(result => {
+              res.send();
           })
           .catch(err => {
             console.log(err);

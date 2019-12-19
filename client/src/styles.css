@@ -5,6 +5,7 @@ body, html{
     background-image: url("./assets/background.png");
     background-color: rgba(19, 15, 15,);
     background-size: cover;
+    color: white;
     
 }
 

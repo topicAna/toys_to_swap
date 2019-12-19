@@ -60,5 +60,17 @@ export const WishController = (app: Application) => {
       });
 
 
+    router.delete('/deletewish/:id', (req: Request, res: Response) => {
+        const id = parseInt(req.params.id);
+  
+        wishService.deleteWishFromUser(id).then(result => {
+              res.send();
+          })
+          .catch(err => {
+            console.log(err);
+          })
+      });
+
+
     app.use('/wish', router);
 };

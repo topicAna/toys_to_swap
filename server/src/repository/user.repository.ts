@@ -38,8 +38,8 @@ export class UserRepository {
     verifyUser(username: string){
         return this.connection.query(`select * from ${this.table} where pseudo=?`, [username])
             .then((results: any) => {
-                return results;
-            });
+                return results[0];
+        });
     }
 
 }

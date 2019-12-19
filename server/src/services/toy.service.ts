@@ -38,6 +38,11 @@ export class ToyService {
         return this.repository.findById(id);
     }
 
+    getToyByUser(id: number): Promise<Toy> {
+        return this.repository.findToyByUserId(id);
+    }
+
+
     /**
      * Create a new post and return a promise which contains the created post.
      * @param post post to create
@@ -45,6 +50,10 @@ export class ToyService {
     create(toy: any): Promise<Toy> {
       return this.repository.insert(toy);
     }
+
+    deleteToyByUser(id: number): Promise<any> {
+        return this.repository.deleteToyByUser(id);
+      }
 
     
 }
