@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { ExchangeListComponent } from './exchange/exchange-list/exchange-list.component';
 import { ExchangeDetailComponent } from './exchange/exchange-detail/exchange-detail.component';
 import { ExchangeCreationComponent } from './exchange/exchange-creation/exchange-creation.component';
+import { ProfilComponent } from './pages/profil/profil.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { ExchangeCreationComponent } from './exchange/exchange-creation/exchange
     ExchangeListComponent,
     ExchangeDetailComponent,
     ExchangeCreationComponent,
+    ProfilComponent,
   ],
   imports: [
     BrowserModule,
