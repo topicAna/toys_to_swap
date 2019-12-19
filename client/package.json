@@ -11,7 +11,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~8.2.9",
+    "@angular/animations": "^8.2.14",
     "@angular/common": "~8.2.9",
     "@angular/compiler": "~8.2.9",
     "@angular/core": "~8.2.9",
@@ -21,8 +21,10 @@
     "@angular/router": "~8.2.9",
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
+    "ng2-animate-on-scroll": "^1.2.0",
     "popper": "^1.0.1",
     "rxjs": "~6.4.0",
+    "scrollreveal": "^4.0.5",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },

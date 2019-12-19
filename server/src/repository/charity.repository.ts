@@ -30,9 +30,9 @@ export class CharityRepository {
      */
     findAll(): Promise<Charity[]> {
         return this.connection.query(`SELECT * FROM ${this.table}`)
-        .then((results: any) => {
+          .then((results: any) => {
             return results.map((charity: any) => new Charity(charity));
-        });
+          });
     }
 
 }

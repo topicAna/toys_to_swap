@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { ExchangeCreationComponent } from './exchange/exchange-creation/exchange-creation.component';
 import { CharitiesListComponent } from './charities-list/charities-list.component';
 import { SecretSantaComponent } from './pages/secret-santa/secret-santa.component';
+import { LoginComponent } from './login/login.component';
+import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 
 
 const routes: Routes = [
@@ -17,7 +19,14 @@ const routes: Routes = [
   {
     path: 'event', 
     component: SecretSantaComponent
-  }
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+
+  {path: '', 
+  component: LandingPageComponent},
 ];
 
 @NgModule({

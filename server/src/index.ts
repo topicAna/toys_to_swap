@@ -6,6 +6,7 @@ import { PostsController } from './controller/posts.controller';
 import { EventsController } from './controller/events.controller';
 import { ToyController } from './controller/toys.controller';
 import { CharityController } from './controller/charity.controller';
+import { UserController } from './controller/user.controller';
 
 
 async function startServer() {
@@ -18,6 +19,7 @@ async function startServer() {
     // Ajout des différentes route de votre application
     PostsController(app);
     EventsController(app);
+    UserController(app);
 
     TeamsController(app);
     CharityController(app);

@@ -7,6 +7,7 @@ import { Charity } from './charity';
 })
 export class toysService {
 
+
     charities: Set<Charity> = new Set<Charity>();
     toysURL = "http://localhost:3000"
   
@@ -22,6 +23,8 @@ export class toysService {
     return this.charities;
   }
 
-  
+  getUser(username: string){
+    return this.http.get<any>(`${this.toysURL}/user/getUser/${username}`);
+  }
 
 }
