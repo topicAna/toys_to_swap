@@ -1,0 +1,19 @@
+
+
+#navbar{
+background:rgba(145, 66, 63, 0.5);
+border-radius: 8px;
+box-shadow: 2px 5px rgba(245, 245, 245, 0.9);
+}
+
+#logo{
+    width:150px;
+}
+
+.nav-item a{
+    font-size: 30px;
+    color: whitesmoke;
+    font-family: Helvetica, sans-serif;
+   
+    margin-left: 20px;
+}

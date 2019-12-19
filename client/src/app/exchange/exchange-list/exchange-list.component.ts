@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { toysService } from 'src/app/shared/toysService';
 import { Toy } from '../../shared/toy';
 import { Wish } from 'src/app/shared/wish';
-import { timingSafeEqual } from 'crypto';
 
 @Component({
   selector: 'app-exchange-list',

@@ -23,7 +23,13 @@ var TeamsRepository = /** @class */ (function () {
      * Make a query to the database to retrieve all posts and return it in a promise.
      */
     TeamsRepository.prototype.findAll = function () {
-        return this.connection.query("SELECT * from " + this.table)
+        return this.connection.query("SELECT count(user_team.user_id) as nbPlayers, team.nbPlayerMAx - COUNT(user_team.user_id) AS nbPlayersRest, team.name, team.logo, team.details, team.nbPlayerMax, team.city, team.zip_code, team.country FROM user_team RIGHT JOIN team ON team.id=user_team.team_id GROUP BY team.id")
+            .then(function (results) {
+            return results.map(function (team) { return new team_1.Team(team); });
+        });
+    };
+    TeamsRepository.prototype.findTeamByUser = function (id) {
+        return this.connection.query("SELECT count(user_team.user_id) as nbPlayers, team.nbPlayerMAx - COUNT(user_team.user_id) AS nbPlayersRest, team.name, team.logo, team.details, team.nbPlayerMax, team.city, team.zip_code, team.country FROM user_team RIGHT JOIN team ON team.id=user_team.team_id WHERE user_team.user_id = ? GROUP BY team.id", [id])
             .then(function (results) {
             return results.map(function (team) { return new team_1.Team(team); });
         });
@@ -37,13 +43,31 @@ var TeamsRepository = /** @class */ (function () {
         return this.connection.query("SELECT * FROM " + this.table + " WHERE id = ?", [id])
             .then(function (results) { return new team_1.Team(results[0]); });
     };
+    TeamsRepository.prototype.searchTeam = function (name, loc) {
+        return this.connection.query("SELECT count(user_team.user_id) as nbPlayers, team.nbPlayerMAx - COUNT(user_team.user_id) AS nbPlayersRest, team.name, team.logo, team.details, team.nbPlayerMax, team.city, team.zip_code, team.country FROM user_team RIGHT JOIN team ON team.id=user_team.team_id WHERE team.city = ? OR team.country = ? OR team.zip_code = ? OR team.name = ? GROUP BY team.id", [loc, loc, loc, name])
+            .then(function (results) {
+            return results;
+        });
+    };
+    TeamsRepository.prototype.searchTeamByPlaces = function (name, loc) {
+        return this.connection.query("SELECT count(user_team.user_id) as nbPlayers, team.nbPlayerMAx - COUNT(user_team.user_id) AS nbPlayersRest, team.name, team.logo, team.details, team.nbPlayerMax, team.city, team.zip_code, team.country FROM user_team RIGHT JOIN team ON team.id=user_team.team_id GROUP BY team.id HAVING nbPlayersRest > 0", [])
+            .then(function (results) {
+            return results;
+        });
+    };
+    TeamsRepository.prototype.searchTeamByPlacesWithParams = function (name, loc) {
+        return this.connection.query("SELECT count(user_team.user_id) as nbPlayers, team.nbPlayerMAx - COUNT(user_team.user_id) AS nbPlayersRest, team.name, team.logo, team.details, team.nbPlayerMax, team.city, team.zip_code, team.country FROM user_team RIGHT JOIN team ON team.id=user_team.team_id WHERE team.city = ? OR team.country = ? OR team.zip_code = ? OR team.name = ? GROUP BY team.id HAVING nbPlayersRest > 0", [loc, loc, loc, name])
+            .then(function (results) {
+            return results;
+        });
+    };
     /**
      * Make a query to the database to insert a new post and return the created post in a promise.
      * @param post post to create
      */
     TeamsRepository.prototype.insert = function (team) {
         var _this = this;
-        return this.connection.query("INSERT INTO " + this.table + " (name, logo, details) VALUES (?,?,?)", [team.name, team.logo, team.details]).then(function (result) {
+        return this.connection.query("INSERT INTO " + this.table + " (name, nbPlayerMax, city, zip_code, country) VALUES (?,?,?,?,?)", [team.name, team.nbPlayerMax, team.city, team.zip_code, team.country]).then(function (result) {
             // After an insert the insert id is directly passed in the promise
             return _this.findById(result.insertId);
         });
@@ -54,7 +78,7 @@ var TeamsRepository = /** @class */ (function () {
      */
     TeamsRepository.prototype.update = function (team) {
         var _this = this;
-        return this.connection.query("UPDATE " + this.table + " SET name = ?, logo = ?, details = ? WHERE id = ?", [team.name, team.logo, team.details, team.id]).then(function () {
+        return this.connection.query("UPDATE " + this.table + " SET name = ?, logo = ?, details = ?, nbPlayerMax = ?, city = ?, zip_code = ?, country = ? WHERE id = ?", [team.name, team.logo, team.details, team.nbPlayerMax, team.city, team.zip_code, team.country, team.id]).then(function () {
             return _this.findById(team.id);
         });
     };

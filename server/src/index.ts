@@ -3,9 +3,12 @@ import express from 'express';
 
 import loaders from './loaders';
 import { PostsController } from './controller/posts.controller';
-import { CharityController } from './controller/charity.controller';
+import { EventsController } from './controller/events.controller';
 import { ToyController } from './controller/toys.controller';
 import { WishController } from './controller/wish.controller';
+import { CharityController } from './controller/charity.controller';
+import { UserController } from './controller/user.controller';
+
 
 async function startServer() {
     // Récupération de l'application initiale
@@ -16,6 +19,8 @@ async function startServer() {
 
     // Ajout des différentes route de votre application
     PostsController(app);
+    EventsController(app);
+    UserController(app);
     TeamsController(app);
     CharityController(app);
     ToyController(app);

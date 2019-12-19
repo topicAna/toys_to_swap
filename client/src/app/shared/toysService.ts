@@ -10,6 +10,7 @@ import { Wish } from './wish';
 })
 export class toysService {
 
+
     charities: Set<Charity> = new Set<Charity>();
     toys: Set<Toy> = new Set<Toy>();
     toysURL = "http://localhost:3000"
@@ -46,9 +47,9 @@ export class toysService {
     {
         return this.http.get<Set<Toy>>(`${this.toysURL}/wish/iwant/${id}`);
     }
-
-
-  }
   
-
+  getUser(username: string){
+    return this.http.get<any>(`${this.toysURL}/user/getUser/${username}`);
+  }
+}
 
