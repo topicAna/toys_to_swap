@@ -1,39 +1,59 @@
 
+<h1>Mon Compte</h1>
+<div class="profilBase">
 <div class="profilContainer"  *ngFor="let user of users">
-    <h1>Mon Compte</h1>
-        <h4>Mon pseudo : </h4> <span>{{ user.pseudo }}</span>
-        <h4>Mon nom :</h4> <span>{{ user.lastname }}</span>
-        <h4>Mon prénom :</h4> <span>{{ user.firstname }}</span>
-    <h2>Mes évenements</h2>
-    <div class="bigcard" style="width: 70rem;" *ngFor="let p of participates">
+
+      <img src="/assets/user.png" alt="user" width="200px" class= "user">
+        <h4> Mon pseudo: {{ user.pseudo }}</h4> <span></span>
+        <h4>Mon nom: {{ user.firstname }} {{ user.lastname }}</h4> <span></span>
+</div>
+
+<div class="cards">
+
+  <div class="eventContain">
+       <h2>Mes évenements</h2>
+        <div class="littlecard" *ngFor="let p of participates">
         <img src="{{ p.image }}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{ p.name }}</h5>
-          <p class="card-text">{{ p.date }}</p>
-          <button href="#" class="btn btn-primary" data-toggle="modal1" data-target="#exampleModalCenter1" (click)="deleteEvent(p)">Annuler</button>
+           <div class="card-body">
+             <h5 class="card-title">{{ p.name }}</h5>
+             <p class="card-text">{{ p.date }}</p>
+              <button href="#" class="btn btn-primary" (click)="deleteEvent(p)">Annuler</button>
+            </div>
         </div>
-      </div>
-    <h2>Je donne</h2>
-    <div *ngIf="!toysByUser">
-      Tu n'as pas donné de jouet
+  </div>
+ 
+  <div class="eventContain">
+     <h2>Je donne</h2>
+
+    <div class="littlecard" *ngFor="let toy of userToys">
+        <div *ngIf="!toysByUser">
+            Tu n'as pas de jouet à donner.
+          </div>
+      
+          <img src="http://localhost:3000/uploads/{{ toy.image }}" class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">{{ toy.name }}</h5>
+        <p>{{ toy.description }}</p>
+        <button href="#" class="btn btn-primary" (click)="deleteUserToy(toy)">Supprimer</button>
+        </div>
     </div>
-    <div class="bigcard" style="width: 70rem;" *ngFor="let toy of userToys">
-        <img src="http://localhost:3000/uploads/{{ toy.image }}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{ toy.name }}</h5>
-          <button href="#" class="btn btn-primary" data-toggle="modal3" data-target="#exampleModalCenter3" (click)="deleteUserToy(toy)">Supprimer</button>
-        </div>
-      </div>
+  </div>
+
   
-    <h2>Je veux</h2>
-    <div *ngIf="!userWish">
-        Tu n'as pas encore choisi un jouet
+    <div class="eventContain">
+      <h2>Je veux</h2>
+      <div *ngIf="!userWish">
+        Tu n'as pas encore choisi un jouet.
       </div>
-    <div class="bigcard" style="width: 70rem;" *ngFor="let toy of wish">
+
+      <div class="littlecard" *ngFor="let toy of wish">
         <img src="http://localhost:3000/uploads/{{ toy.image }}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{ toy.name }}</h5>
-          <button href="#" class="btn btn-primary" data-toggle="modal2" data-target="#exampleModalCenter2" (click)="deleteWish(toy)">Supprimer</button>
-        </div>
+          <div class="card-body">
+            <h5 class="card-title">{{ toy.name }}</h5>
+            <p> {{ toy.description }}</p>
+            <button href="#" class="btn btn-primary" (click)="deleteWish(toy)" style="float: right;">Supprimer</button>
+          </div>
       </div>
+    </div>
+  </div>
 </div>

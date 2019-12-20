@@ -18,6 +18,7 @@ export class ProfilComponent implements OnInit {
 
   userWish: boolean = true;
   toysByUser: boolean = true;
+  eventByUser: boolean = true;
   users: Set<User> = new Set<User>();
   user: User;
   wish: Set<Toy> = new Set<Toy>();
@@ -71,7 +72,7 @@ export class ProfilComponent implements OnInit {
     this.toyService.getToysByUser(id).subscribe(result => result.forEach(t => this.userToys.add(t)));
     if(this.userToys.size == 0)
     {
-      this.toysByUser = false
+      this.toysByUser = false;
     }
   }
 

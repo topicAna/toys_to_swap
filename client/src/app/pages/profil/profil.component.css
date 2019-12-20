@@ -1,4 +1,51 @@
-*
-{
+
+.profilBase{
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+h1{
+    padding: 30px;
     color: white;
+}
+h4{
+    color: white;
+}
+.card-img-top{
+    width: 300px;
+}
+.bicard{        
+opacity: 0.2;    
+}
+.user{
+    margin-bottom: 15px;
+}
+.eventContain{
+    width: 400px;
+    border-radius: 5px;
+    padding: 15px;
+    margin-right: 20px;
+    background-color: white;
+    margin-bottom: 15px;
+
+}
+.cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90%;
+    color: inherit;
+}
+.btn btn-primary{
+    justify-content: right;
+    align-content: flex-end;
+    background-color: maroon;
+}
+.btn-primary {
+    color: #fff;
+    background-color: maroon;
+    border-color: maroon;
 }
