@@ -39,9 +39,6 @@ h3
     color: white;
 }
 
-input[type="file"] {
-    align-content: center;
-}
 
 .button{
 	margin-bottom: 5%;
@@ -84,7 +81,7 @@ input[type="file"] {
     margin-left: 20px;
   }
 
-  .title{
-    margin-top: 0px;
-  }
 
+
+
+  
