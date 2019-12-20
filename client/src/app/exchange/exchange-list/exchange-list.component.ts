@@ -19,15 +19,13 @@ export class ExchangeListComponent implements OnInit {
 
   ngOnInit() {
     this.getToys();
+   
   }
 
   getToys()
   {
     this.toyService.getToys().subscribe(response => response.forEach(t => this.toys.add(t)));
-    if(this.toys.size == 0)
-    {
-      this.exchangeList = false;
-    }
+    console.log(this.toys.size)
   }
 
   exchange(toy: Toy)

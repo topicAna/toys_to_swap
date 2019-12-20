@@ -31,7 +31,7 @@ export class ToyRepository {
 
 
     findAll(): Promise<Toy[]> {
-        return this.connection.query(`SELECT * FROM ${this.table}`)
+        return this.connection.query(`SELECT * FROM ${this.table} WHERE user_id != 1`)
           .then((results: any) => {
             return results.map((toy: any) => new Toy(toy));
           });

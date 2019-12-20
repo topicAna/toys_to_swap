@@ -2,3 +2,24 @@
 {
     color: white;
 }
+
+.bigcard
+{
+    width: 200px;
+    border-radius: 5px;
+}
+
+.bigcard img
+{
+    width: 90%;
+}
+
+.cardContainer
+{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+   
+}
