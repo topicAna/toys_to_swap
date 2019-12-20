@@ -31,6 +31,9 @@ CREATE TABLE IF NOT EXISTS `toys_to_swap`.`user` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
+INSERT INTO user(firstname,lastname,email,password,pseudo,zip ) VALUES (
+  'Mael', 'Vincent', 'maelvincent@gmail.com', 'motdepasse', 'mayotte', 69000
+);
 
 -- -----------------------------------------------------
 -- Table `toys_to_swap`.`charity`
@@ -70,7 +73,8 @@ CREATE TABLE IF NOT EXISTS `toys_to_swap`.`toy` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
+insert into toy(name, image, description, user_id, charity_id) values
+('Barbie',"/assets/images/barbie.jpeg" ,'Barbie fitness',1, 2);
 -- -----------------------------------------------------
 -- Table `toys_to_swap`.`event`
 -- -----------------------------------------------------

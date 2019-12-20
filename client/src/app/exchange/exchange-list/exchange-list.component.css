@@ -2,9 +2,14 @@
 {
     width: 90%;
     margin: 0 auto;
+    text-align: center;
     margin-bottom: 100px;
 }
 
+h4
+{
+    color: white;
+}
 .toyList
 {
     width: 100%;
@@ -24,11 +29,15 @@
 
 .toyCard
 {
+    width: 250px;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 5px;
     background:rgba(28, 65, 19, 0.5);
-	border-radius: 8px;
 	box-shadow: -1px 1px 5px 9px rgba(245, 245, 245, 0.9);
 	margin-top: 5%;
-    width: 25%;
 }
 
 img

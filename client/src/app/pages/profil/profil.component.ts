@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { toysService } from 'src/app/shared/toysService';
 import { User } from 'src/app/shared/user';
 import { Event } from '../../shared/event';
-import { toysService } from 'src/app/shared/toysService';
 import { Participate } from 'src/app/shared/participate';
 import { Router } from '@angular/router';
 import { Wish } from 'src/app/shared/wish';
@@ -15,8 +15,10 @@ import { __core_private_testing_placeholder__ } from '@angular/core/testing';
 })
 export class ProfilComponent implements OnInit {
 
+
   userWish: boolean = true;
   toysByUser: boolean = true;
+  eventByUser: boolean = true;
   users: Set<User> = new Set<User>();
   user: User;
   wish: Set<Toy> = new Set<Toy>();
@@ -56,21 +58,16 @@ export class ProfilComponent implements OnInit {
 
   getWish(id: number)
   {
-    this.wish.clear();
     this.toyService.getWish(id).subscribe(result => result.forEach(w => this.wish.add(w)));
-    if(this.wish.size == 0)
-    {
-      this.userWish = false
-    }
+    console.log(this.wish)
   }
 
   getToysByUser(id: number)
   {
-    this.userToys.clear();
     this.toyService.getToysByUser(id).subscribe(result => result.forEach(t => this.userToys.add(t)));
     if(this.userToys.size == 0)
     {
-      this.toysByUser = false
+      this.toysByUser = false;
     }
   }
 

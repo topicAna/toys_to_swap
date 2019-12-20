@@ -43,7 +43,7 @@ export class WishRepository {
 
     findToyIWish(id: number): Promise<Toy[]>
     {
-        return this.connection.query(`select toy.id, toy.name, toy.image, toy.description from wish JOIN toy on wish.toy_id = toy.id where toy.user_id=?`,[id])
+        return this.connection.query(`select toy.id, toy.name, toy.image, toy.description from wish JOIN toy on wish.toy_id = toy.id where wish.user_id=?`,[id])
         .then((result: any) => {
             return result.map((toy:any) => new Toy(toy));
         });
