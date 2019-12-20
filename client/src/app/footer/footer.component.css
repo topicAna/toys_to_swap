@@ -1,4 +1,7 @@
 
+* {
+  flex: 1 0 auto;
+}
 li
 {
   list-style-type: none;
@@ -25,8 +28,8 @@ footer
 
 
 p{
-    font-size: 25px;
-    color: whitesmoke;
+  font-size: (14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+  color: whitesmoke;
     font-family: Helvetica, sans-serif;
    
     margin-left: 20px;
@@ -48,7 +51,7 @@ p{
 .logo
 {
   
-  height: 5vh;
+  height: 4vh;
 }
 
 
@@ -81,5 +84,7 @@ p:hover{
     
   }
 
-  
+  #address p{
+    margin-right: 5%;
+  }
 }

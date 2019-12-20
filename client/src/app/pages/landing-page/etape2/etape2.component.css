@@ -1,14 +1,13 @@
 .jumbotron{
-    background:rgba(145, 66, 63, 0.5);
-    border-radius: 8px;
-    box-shadow: -1px 1px 5px 9px rgba(245, 245, 245, 0.9);
-    margin-top: 5%;
-    width: auto;
+	background:rgba(28, 65, 19, 0.5);
+	border-radius: 8px;
+	box-shadow: -1px 1px 5px 9px rgba(245, 245, 245, 0.9);
+	margin-top: 5%;
 }
-    
+
 
 .jumbotron a, p, h1 {
-    font-size: 40px;
+    font-size: calc(24px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
     color: whitesmoke;
     font-family: Helvetica, sans-serif;
     text-align: center;
@@ -16,7 +15,7 @@
 }
 
 .button{
-  margin:auto;
+	margin:auto;
 	margin-top: 50px;
     display:block;
     box-shadow:inset 0px 0px 0px 0px #9acc85;
@@ -27,9 +26,9 @@
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
-	font-size:25px;
+	font-size: (14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
 	font-weight:bold;
-	padding:20px 40px;
+	padding:1em 1em;
 	text-decoration:none;
   }
   
@@ -43,18 +42,19 @@
   }
 
 .txt {
-    
-    font-size: 30px;
+    font-size: (14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
     color: whitesmoke;
     font-family: Helvetica, sans-serif;
     text-align: center;
 }
-
-
 
 .title{
     display: flex;
     justify-content: center;
     align-content: center;
     align-items: center;
+}
+
+.img{
+width: 10%;
 }
