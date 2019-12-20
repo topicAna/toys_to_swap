@@ -1,5 +1,5 @@
 .jumbotron{
-	background:rgba(145, 66, 63, 0.5);
+	background:rgba(28, 65, 19, 0.5);
 	border-radius: 8px;
 	box-shadow: -1px 1px 5px 9px rgba(245, 245, 245, 0.9);
 	margin-top: 5%;
@@ -17,32 +17,30 @@
 
 .button{
 	margin:auto;
-	display:block;
-	box-shadow: 0px 10px 14px -7px #3e7327;
-	background:linear-gradient(to bottom, #77b55a 5%, rgb(10, 95, 43) 100%);
-	background-color:#77b55a;
-	border-radius:4px;
-	border:1px solid #4b8f29;
+	margin-top: 50px;
+    display:block;
+    box-shadow:inset 0px 0px 0px 0px #9acc85;
+	background:linear-gradient(to bottom, #264518 5%, #5ea33b 100%);
+	background-color:#264518;
+	border-radius:7px;
+	border:2px solid #508535;
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
-	font-size:19px;
+	font-size:25px;
 	font-weight:bold;
-	padding:10px 28px;
+	padding:20px 40px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #5b8a3c;
-	margin-top: 30px;
-}
-
-.button:hover {
-	background:linear-gradient(to bottom, rgb(6, 155, 63) 5%, rgb(10, 95, 43) 100%);
-	background-color:rgb(6, 155, 63);
-}
-
-.button:active {
-	position:relative;
+  }
+  
+  .button:hover {
+    background:linear-gradient(to bottom, #5ea33b 5%, #264518 100%);
+	background-color:#5ea33b;
+  }
+  .button:active {
+    position:relative;
 	top:1px;
-}
+  }
 
 .txt {
     font-size: 30px;
