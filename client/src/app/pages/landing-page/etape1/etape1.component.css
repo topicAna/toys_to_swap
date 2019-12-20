@@ -8,7 +8,7 @@
 
 
 .jumbotron a, p, h1 {
-    font-size: 40px;
+    font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
     color: whitesmoke;
     font-family: Helvetica, sans-serif;
     text-align: center;
@@ -27,9 +27,9 @@
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
-	font-size:25px;
+	font-size: (14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
 	font-weight:bold;
-	padding:20px 40px;
+	padding:1em 1em;
 	text-decoration:none;
   }
   
@@ -43,7 +43,7 @@
   }
 
 .txt {
-    font-size: 30px;
+    font-size: (14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
     color: whitesmoke;
     font-family: Helvetica, sans-serif;
     text-align: center;
