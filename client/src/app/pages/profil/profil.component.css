@@ -1,25 +1,119 @@
-*
-{
+*{
     color: white;
 }
-
-.bigcard
-{
-    width: 200px;
-    border-radius: 5px;
+.profilContainer{
+    margin-right: 40px;
 }
-
-.bigcard img
-{
+.profilBase{
     width: 90%;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+h1{
+    padding: 30px;
+    color: white;
+}
+h4{
+    color: white;
+}
+.card-img-top{
+    width: 300px;
 }
 
-.cardContainer
-{
-    width: 80%;
-    margin: 0 auto;
+.user{
+    margin-bottom: 15px;
+}
+.eventContain{
+    width: 400px;
+    border-radius: 5px;
+    padding: 15px;
+    margin-right: 20px;
+    background-color: rgba(0, 0, 0, 0.623);
+    margin-bottom: 15px;
+    border: 1px solid white;
+
+
+}
+
+.eventContainun{
+    width: 1000px;
+    border-radius: 5px;
+    padding: 15px;
+    margin-right: 20px;
+    background-color: rgba(0, 0, 0, 0.623);
+    margin-bottom: 15px;
+    border: 1px solid white;
+
+
+}
+.cards{
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-   
+    width: 90%;
+    color: inherit;
+    align-items: flex-start;
 }
+.btn btn-primary{
+    justify-content: right;
+    align-content: flex-end;
+    background-color: maroon;
+}
+.btn-primary {
+    color: #fff;
+    background-color: maroon;
+    border-color: maroon;
+}
+
+@media screen and (max-width: 1000px) {
+    .eventContainun{
+        width: 300px;
+    
+    
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .user{
+        display: none;
+    }
+
+    .eventContain{
+        width: 300px;
+        padding: 10px;
+        margin: auto;
+
+    }
+
+    .card-img-top{
+        display: none;
+    }
+
+    .profilBase{
+        width: 90%;
+        margin: auto;
+        padding: 20px;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .profilContainer{
+        margin-right: 10px;
+    }
+    h1{
+        padding: 14px;
+        color: white;
+        font-size: 14px;
+    }
+    h4{
+        color: white;
+    }
+    h2{
+        font-size: 14px;
+    }
+  }

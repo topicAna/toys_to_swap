@@ -5,15 +5,27 @@ import {Router} from '@angular/router';
 import { Participate } from 'src/app/shared/participate';
 import { Event } from 'src/app/shared/event';
 import { toysService } from 'src/app/shared/toysService';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 
 @Component({
   selector: 'app-secret-santa',
   templateUrl: './secret-santa.component.html',
   styleUrls: ['./secret-santa.component.css'],
+  animations: [
+
+
+      trigger('fade', [ 
+        transition('void => *', [
+          style({ opacity: 0 }), 
+          animate(2000, style({opacity: 1}))
+        ]) 
+      ]),
+      
+     
+  ],
 
 })
-
 
 export class SecretSantaComponent implements OnInit {
 

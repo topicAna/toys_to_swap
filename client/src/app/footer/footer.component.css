@@ -31,10 +31,12 @@ p{
    
     margin-left: 20px;
 }
-.container
+.containerFooter
 {
+
+  border-top:solid 2px whitesmoke;
   width: 100%;
-text-align: center;
+  justify-content: space-between
 
 }
 .nav-item a
@@ -45,7 +47,23 @@ text-align: center;
 
 .logo
 {
+  
   height: 5vh;
+}
+
+
+.logo:hover{
+  height: 8vh;
+  transition: all 0.5s ease;
+}
+p{
+  list-style: none;
+  cursor:pointer;
+  text-decoration: none;
+}
+
+p:hover{
+  color: rgb(41, 105, 25);
 }
 
 @media (max-width: 768px) 
@@ -60,5 +78,8 @@ text-align: center;
   .sozial
   {
     margin-bottom: 1vh;
+    
   }
+
+  
 }

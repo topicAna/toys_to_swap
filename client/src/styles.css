@@ -3,7 +3,9 @@
 
 body, html{
     background-image: url("./assets/background.png");
-    background-color: rgba(19, 15, 15,);
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+    
     background-size: cover;
     color: white;
     
@@ -11,4 +13,5 @@ body, html{
 
 *{
     font-family: Helvetica, sans-serif;
+    
 }
