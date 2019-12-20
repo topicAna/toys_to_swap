@@ -12,6 +12,7 @@
 }
 
 .txt {
+    margin-bottom: 5%;
     font-size: (14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
     color: whitesmoke;
     font-family: Helvetica, sans-serif;
