@@ -3,13 +3,14 @@
    
     <form [formGroup]="addToyForm" (ngSubmit)="addToy()">
         <label class="title">Titre</label>
-        <input type="text"  id="toyName" formControlName ="name" aria-describedby="nameHelp" placeholder="Titre de ton jouet">
+        <input type="text"  id="toyName" formControlName ="name" aria-describedby="nameHelp">
         <small id="nameHelp" class="form-text text-muted">Donne un titre accrocheur à ton jouet</small><br/>
         <label>Photo</label>
-        <input type="file" class="form-control-file" id="exampleFormControlFile1" formControlName ="image" aria-describedby="imgHelp" (change)="onFileSelect($event)">
+
+        <input type="file" class="custom-file-input" id="exampleFormControlFile1" formControlName ="image" aria-describedby="imgHelp" (change)="onFileSelect($event)">
         <small id="imgHelp" class="form-text text-muted">Prend une jolie photo de ton jouet</small><br/>
         <label>Description</label>
-        <input type="textarea" id="toyDesc" formControlName ="desc" aria-describedby="descHelp" placeholder="Description">
+        <input type="textarea" id="toyDesc" formControlName ="desc" aria-describedby="descHelp" p>
         <small id="toyDesc" class="form-text text-muted">Dis nous pourquoi ton jouet est spécial</small><br/>
         <label>Si ton jouet ne trouve pas preneur, à quelle association voudrais-tu le confier ?</label>
         <select id="toyAsso" formControlName ="charity">

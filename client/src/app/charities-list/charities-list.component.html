@@ -1,8 +1,10 @@
 <div class="container-fluid assos">
-    <div *ngFor="let charity of charities" class="jumbotron">
+    <div *ngFor="let charity of charities" class="jumbotron" @fade >
         <div class="eachasso">
             <img src={{charity.image}} class="img"/>
             <div class="text">{{charity.description}}</div>      
         </div> 
     </div>
 </div>
+
+
